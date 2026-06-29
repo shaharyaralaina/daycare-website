@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC Angel Daycare – Parsippany, NJ</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --pink: #F06292; --pink-light: #FCE4EC; --pink-dark: #C2185B;
+    --purple: #7B5EA7; --purple-light: #EDE7F6; --purple-dark: #4A2C8A;
+    --blue: #42A5F5; --blue-light: #E3F2FD;
+    --green: #66BB6A; --green-light: #E8F5E9;
+    --yellow: #FFCA28; --yellow-light: #FFF8E1;
+    --orange: #FFA726; --cream: #FFFBFF; --warm: #FFF0F5;
+    --text: #2D1B33; --text-soft: #6B4F72; --text-muted: #B09AB8;
+    --border: rgba(123,94,167,0.12); --radius: 22px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--text); max-width: 480px; margin: 0 auto; overflow-x: hidden; }
+
+  .hero { background: linear-gradient(160deg, #FFF0F9 0%, #EDE7F6 100%); padding: 44px 24px 32px; text-align: center; position: relative; border-bottom: 3px dashed rgba(240,98,146,0.2); overflow: hidden; }
+  .hero::before { content: '☁️'; position: absolute; top: 12px; left: 10px; font-size: 36px; opacity: 0.5; }
+  .hero::after { content: '☁️'; position: absolute; top: 20px; right: 14px; font-size: 28px; opacity: 0.4; }
+  .hero-sun { font-size: 48px; margin-bottom: 4px; animation: spin-slow 8s linear infinite; display: inline-block; }
+  @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .hero-angel { font-size: 52px; display: block; margin-bottom: 8px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--pink-light); color: var(--pink-dark); font-size: 11px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 14px; }
+  .hero h1 { font-family: 'Fredoka One', cursive; font-size: 42px; line-height: 1.05; margin-bottom: 4px; }
+  .hero h1 .abc { color: var(--pink); } .hero h1 .angel { color: var(--purple); }
+  .hero-sub { font-family: 'Fredoka One', cursive; font-size: 20px; color: var(--blue); margin-bottom: 10px; }
+  .age-banner { display: inline-block; background: var(--pink); color: #fff; font-size: 14px; font-weight: 800; padding: 7px 20px; border-radius: 100px; margin-bottom: 18px; box-shadow: 0 3px 0 var(--pink-dark); }
+  .hero-tagline { font-size: 15px; color: var(--text-soft); line-height: 1.6; max-width: 300px; margin: 0 auto 22px; }
+  .hero-cta { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  .btn { display: inline-flex; align-items: center; gap: 7px; padding: 13px 22px; border-radius: 100px; font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; text-decoration: none; cursor: pointer; border: none; transition: transform 0.15s, box-shadow 0.15s; }
+  .btn:active { transform: scale(0.96); }
+  .btn-primary { background: var(--pink); color: #fff; box-shadow: 0 4px 0 var(--pink-dark); }
+  .btn-primary:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--pink-dark); }
+  .btn-purple { background: var(--purple); color: #fff; box-shadow: 0 4px 0 var(--purple-dark); }
+  .btn-purple:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--purple-dark); }
+  .btn-white { background: #fff; color: var(--pink-dark); font-weight: 800; box-shadow: 0 4px 0 rgba(0,0,0,0.12); }
+
+  .trust-strip { background: var(--purple); padding: 14px 16px; display: flex; justify-content: space-around; gap: 6px; }
+  .trust-item { display: flex; flex-direction: column; align-items: center; gap: 2px; color: #fff; }
+  .trust-num { font-size: 18px; font-weight: 900; line-height: 1; }
+  .trust-label { font-size: 10px; font-weight: 600; opacity: 0.85; text-align: center; }
+
+  section { padding: 32px 24px; }
+  section + section { border-top: 2px dashed var(--border); }
+  .section-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink); margin-bottom: 4px; }
+  .section-title { font-family: 'Fredoka One', cursive; font-size: 26px; line-height: 1.15; color: var(--purple); margin-bottom: 6px; }
+  .section-sub { font-size: 14px; color: var(--text-soft); line-height: 1.6; margin-bottom: 20px; }
+
+  .features-list { display: flex; flex-direction: column; gap: 12px; }
+  .feature-row { background: #fff; border-radius: 16px; border: 1.5px solid var(--border); padding: 16px 18px; display: flex; align-items: center; gap: 14px; }
+  .feature-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .feature-text h4 { font-size: 15px; font-weight: 800; margin-bottom: 2px; color: var(--text); }
+  .feature-text p { font-size: 13px; color: var(--text-soft); line-height: 1.4; }
+
+  .nurture-box { background: linear-gradient(135deg, var(--purple) 0%, #9C6FD6 100%); border-radius: var(--radius); padding: 24px 22px; text-align: center; color: #fff; margin-top: 20px; }
+  .nurture-box .big-emoji { font-size: 36px; margin-bottom: 8px; display: block; }
+  .nurture-box h3 { font-family: 'Fredoka One', cursive; font-size: 22px; margin-bottom: 6px; }
+  .nurture-box p { font-size: 14px; opacity: 0.9; line-height: 1.5; }
+
+  .age-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .age-card { border-radius: 18px; padding: 20px 16px; text-align: center; border: 2px solid transparent; }
+  .age-card .emoji { font-size: 32px; margin-bottom: 8px; display: block; }
+  .age-card h4 { font-family: 'Fredoka One', cursive; font-size: 16px; margin-bottom: 4px; }
+  .age-card p { font-size: 12px; line-height: 1.4; }
+
+  .schedule-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .schedule-table th { background: var(--pink-light); color: var(--pink-dark); padding: 10px 14px; text-align: left; font-weight: 800; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .schedule-table th:first-child { border-radius: 12px 0 0 0; } .schedule-table th:last-child { border-radius: 0 12px 0 0; }
+  .schedule-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); color: var(--text-soft); }
+  .schedule-table tr:last-child td { border-bottom: none; }
+  .schedule-table tr:nth-child(even) td { background: rgba(240,98,146,0.03); }
+  .schedule-table .day { font-weight: 700; color: var(--text); }
+
+  .reviews-bg { background: var(--warm); }
+  .testimonial-card { background: #fff; border-radius: var(--radius); padding: 18px 20px; border: 1.5px solid var(--border); position: relative; margin-bottom: 12px; }
+  .testimonial-card::before { content: '\201C'; position: absolute; top: 8px; right: 14px; font-size: 52px; color: var(--pink-light); line-height: 1; font-family: Georgia, serif; }
+  .testimonial-text { font-size: 14px; color: var(--text); line-height: 1.65; margin-bottom: 14px; }
+  .testimonial-author { display: flex; align-items: center; gap: 10px; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .author-name { font-weight: 800; font-size: 14px; }
+  .stars { color: var(--yellow); font-size: 13px; letter-spacing: 1px; }
+  .review-form { background: #fff; border-radius: var(--radius); border: 1.5px solid var(--border); padding: 20px; margin-bottom: 20px; }
+  .review-form label { font-size: 12px; font-weight: 700; color: var(--text-soft); display: block; margin-bottom: 5px; }
+  .review-form input, .review-form textarea { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--border); font-family: 'Nunito', sans-serif; font-size: 14px; outline: none; background: #FAFAFA; margin-bottom: 12px; }
+  .review-form textarea { resize: none; }
+  .star-opt { font-size: 28px; cursor: pointer; opacity: 0.3; transition: opacity 0.1s; }
+
+  .contact-bg { background: var(--warm); }
+  .contact-card { background: #fff; border-radius: 16px; border: 1.5px solid var(--border); padding: 16px 18px; display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); margin-bottom: 12px; transition: transform 0.15s; }
+  .contact-card:active { transform: scale(0.98); }
+  .contact-icon { width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .contact-label { flex: 1; }
+  .contact-label strong { display: block; font-size: 13px; font-weight: 800; margin-bottom: 2px; }
+  .contact-label span { font-size: 13px; color: var(--text-soft); }
+  .contact-arrow { font-size: 18px; color: var(--text-muted); }
+
+  .enroll-box { background: linear-gradient(135deg, var(--pink) 0%, #F48FB1 100%); border-radius: var(--radius); padding: 30px 24px; text-align: center; color: #fff; }
+  .enroll-box h3 { font-family: 'Fredoka One', cursive; font-size: 26px; margin-bottom: 8px; }
+  .enroll-box p { font-size: 14px; opacity: 0.92; line-height: 1.5; margin-bottom: 20px; }
+
+  footer { padding: 28px 24px 48px; text-align: center; border-top: 2px dashed var(--border); }
+  footer .footer-emoji { font-size: 36px; margin-bottom: 6px; }
+  footer h4 { font-family: 'Fredoka One', cursive; font-size: 20px; color: var(--purple); margin-bottom: 4px; }
+  footer p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .social-row { display: flex; justify-content: center; gap: 12px; margin: 14px 0; }
+  .social-btn { width: 42px; height: 42px; border-radius: 50%; background: var(--pink-light); display: flex; align-items: center; justify-content: center; font-size: 20px; text-decoration: none; transition: transform 0.15s; }
+  .social-btn:active { transform: scale(0.88); }
+
+  .floating-cta { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 100; }
+  .floating-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--pink); color: #fff; font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; padding: 14px 26px; border-radius: 100px; box-shadow: 0 6px 24px rgba(240,98,146,0.5), 0 4px 0 var(--pink-dark); text-decoration: none; white-space: nowrap; border: none; cursor: pointer; }
+
+  /* BOOKING FORM */
+  .booking-bg { background: linear-gradient(160deg, #FFF0F9 0%, #EDE7F6 100%); }
+  .booking-form-card { background: #fff; border-radius: var(--radius); border: 1.5px solid var(--border); padding: 22px 20px; }
+  .booking-form-card label { font-size: 12px; font-weight: 700; color: var(--text-soft); display: block; margin-bottom: 5px; margin-top: 12px; }
+  .booking-form-card label:first-of-type { margin-top: 0; }
+  .booking-form-card input, .booking-form-card select, .booking-form-card textarea {
+    width: 100%; padding: 11px 14px; border-radius: 12px; border: 1.5px solid var(--border);
+    font-family: 'Nunito', sans-serif; font-size: 14px; outline: none; background: #FAFAFA;
+    color: var(--text); appearance: none; -webkit-appearance: none;
+  }
+  .booking-form-card select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237B5EA7' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+  .booking-form-card textarea { resize: none; }
+  .booking-form-card input:focus, .booking-form-card select:focus, .booking-form-card textarea:focus { border-color: var(--purple); background: #fff; }
+  .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .booking-submit-btn { width: 100%; margin-top: 18px; background: #25D366; color: #fff; border: none; border-radius: 100px; padding: 14px; font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 0 #128C4E; display: flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.15s; }
+  .booking-submit-btn:active { transform: scale(0.97); }
+  .booking-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+  .success-box { display: none; background: var(--green-light); border-radius: 16px; border: 1.5px solid rgba(102,187,106,0.3); padding: 24px 20px; text-align: center; }
+  .success-box .s-emoji { font-size: 40px; margin-bottom: 8px; display: block; }
+  .success-box h4 { font-family: 'Fredoka One', cursive; font-size: 20px; color: #2E7D32; margin-bottom: 6px; }
+  .success-box p { font-size: 13px; color: #388E3C; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-sun">☀️</span>
+  <span class="hero-angel">👼</span>
+  <div class="hero-badge">⭐ Reasonable Price · Parsippany, NJ</div>
+  <h1><span class="abc">ABC</span> <span class="angel">Angel</span></h1>
+  <div class="hero-sub">Daycare</div>
+  <div class="age-banner">Ages 3 Months – 5 Years</div>
+  <p class="hero-tagline">Nurturing little minds with love & care — a home away from home. 💛</p>
+  <div class="hero-cta">
+    <a href="tel:9735722837" class="btn btn-primary">📞 Call or Text</a>
+    <a href="#book-tour" class="btn btn-purple">📋 Book a Tour</a>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><span class="trust-num">3mo+</span><span class="trust-label">Ages accepted</span></div>
+  <div class="trust-item"><span class="trust-num">💛</span><span class="trust-label">Loving staff</span></div>
+  <div class="trust-item"><span class="trust-num">Safe</span><span class="trust-label">& fun env.</span></div>
+  <div class="trust-item"><span class="trust-num">Fair</span><span class="trust-label">Pricing</span></div>
+</div>
+
+<!-- WHY ABC ANGEL -->
+<section>
+  <p class="section-eyebrow">Why families love us</p>
+  <h2 class="section-title">Your child's happy place 🌈</h2>
+  <p class="section-sub">We treat every child like our own — with warmth, patience, and lots of fun.</p>
+  <div class="features-list">
+    <div class="feature-row"><div class="feature-icon" style="background:var(--green-light);">✅</div><div class="feature-text"><h4>Safe & Fun Environment</h4><p>Secure, bright, and stimulating space designed for little explorers.</p></div></div>
+    <div class="feature-row"><div class="feature-icon" style="background:var(--pink-light);">💗</div><div class="feature-text"><h4>Loving & Caring Staff</h4><p>Our team genuinely loves children and treats each one with care.</p></div></div>
+    <div class="feature-row"><div class="feature-icon" style="background:var(--blue-light);">📚</div><div class="feature-text"><h4>Daily Learning & Play</h4><p>Structured activities that build skills through play every single day.</p></div></div>
+    <div class="feature-row"><div class="feature-icon" style="background:var(--yellow-light);">🏠</div><div class="feature-text"><h4>A Home Away From Home</h4><p>Cozy, warm, and comforting — so your child feels safe and happy.</p></div></div>
+    <div class="feature-row"><div class="feature-icon" style="background:var(--purple-light);">💰</div><div class="feature-text"><h4>Reasonable & Fair Pricing</h4><p>Quality childcare that doesn't break the bank. Ask us about rates!</p></div></div>
+  </div>
+  <div class="nurture-box">
+    <span class="big-emoji">🌸</span>
+    <h3>Nurturing Little Minds<br>with Love & Care</h3>
+    <p>Every child deserves the very best start in life. That's what we're here for.</p>
+  </div>
+</section>
+
+<!-- AGE GROUPS -->
+<section>
+  <p class="section-eyebrow">Who we care for</p>
+  <h2 class="section-title">Ages 3 Months to 5 Years</h2>
+  <p class="section-sub">Specialized care and activities tailored to each stage of development.</p>
+  <div class="age-grid">
+    <div class="age-card" style="background:var(--pink-light); border-color:rgba(240,98,146,0.2);"><span class="emoji">🍼</span><h4 style="color:var(--pink-dark);">Infants</h4><p style="color:#C2185B;">3 months – 12 months</p></div>
+    <div class="age-card" style="background:var(--blue-light); border-color:rgba(66,165,245,0.2);"><span class="emoji">🧸</span><h4 style="color:#1565C0;">Toddlers</h4><p style="color:#1976D2;">1 year – 2 years</p></div>
+    <div class="age-card" style="background:var(--green-light); border-color:rgba(102,187,106,0.2);"><span class="emoji">🎨</span><h4 style="color:#2E7D32;">Pre-K</h4><p style="color:#388E3C;">3 years – 4 years</p></div>
+    <div class="age-card" style="background:var(--purple-light); border-color:rgba(123,94,167,0.2);"><span class="emoji">🎒</span><h4 style="color:var(--purple-dark);">Preschool</h4><p style="color:var(--purple);">4 years – 5 years</p></div>
+  </div>
+</section>
+
+<!-- BOOK A TOUR -->
+<section class="booking-bg" id="book-tour">
+  <p class="section-eyebrow">Schedule a visit</p>
+  <h2 class="section-title">Book a Free Tour 👼</h2>
+  <p class="section-sub">Fill in the details below and we'll reach out to confirm your visit!</p>
+
+  <div class="booking-form-card" id="booking-form-wrap">
+    <label>Parent / Guardian Name *</label>
+    <input id="b-parent" type="text" placeholder="e.g. Sarah Johnson">
+
+    <label>Phone Number *</label>
+    <input id="b-phone" type="tel" placeholder="e.g. 973-555-0100">
+
+    <label>Email Address</label>
+    <input id="b-email" type="email" placeholder="e.g. sarah@email.com">
+
+    <div class="input-row">
+      <div>
+        <label>Child's Age *</label>
+        <select id="b-age">
+          <option value="">Select age</option>
+          <option>3–12 months (Infant)</option>
+          <option>1–2 years (Toddler)</option>
+          <option>3–4 years (Pre-K)</option>
+          <option>4–5 years (Preschool)</option>
+        </select>
+      </div>
+      <div>
+        <label>No. of Children *</label>
+        <select id="b-kids">
+          <option value="">Select</option>
+          <option>1 child</option>
+          <option>2 children</option>
+          <option>3 children</option>
+          <option>4+ children</option>
+        </select>
+      </div>
+    </div>
+
+    <label>Preferred Start Date</label>
+    <input id="b-date" type="date">
+
+    <label>Preferred Tour Time</label>
+    <select id="b-time">
+      <option value="">Select a time</option>
+      <option>Morning (7:00am – 10:00am)</option>
+      <option>Late Morning (10:00am – 12:00pm)</option>
+      <option>Afternoon (12:00pm – 3:00pm)</option>
+      <option>Late Afternoon (3:00pm – 6:00pm)</option>
+    </select>
+
+    <label>Care Schedule Needed</label>
+    <select id="b-schedule">
+      <option value="">Select schedule</option>
+      <option>Full-time (Mon–Fri)</option>
+      <option>Part-time (3 days/week)</option>
+      <option>Part-time (2 days/week)</option>
+      <option>Flexible / Not sure yet</option>
+    </select>
+
+    <label>Any questions or special needs?</label>
+    <textarea id="b-notes" rows="3" placeholder="e.g. allergies, special care needs, questions about pricing..."></textarea>
+
+    <button class="booking-submit-btn" onclick="submitBooking()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L0 24l6.335-1.51A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 01-5.032-1.388l-.36-.214-3.733.889.936-3.638-.235-.374A9.786 9.786 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+      Send via WhatsApp
+    </button>
+    <p class="booking-note">📲 Tapping the button will open WhatsApp with your details pre-filled — just hit send! We'll confirm your tour within a few hours.</p>
+    <p id="booking-msg" style="font-size:13px; text-align:center; color:#E53935; margin-top:8px; min-height:18px;"></p>
+  </div>
+
+  <div class="success-box" id="booking-success">
+    <span class="s-emoji">🎉</span>
+    <h4>You're all set!</h4>
+    <p>Your tour request is on its way to us via WhatsApp. We'll confirm your visit shortly. Can't wait to meet your little one! 💛</p>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section>
+  <p class="section-eyebrow">Hours</p>
+  <h2 class="section-title">We're here for you 🕐</h2>
+  <p class="section-sub">Flexible scheduling to fit your family's needs.</p>
+  <div style="border-radius:16px; overflow:hidden; border:1.5px solid var(--border);">
+    <table class="schedule-table">
+      <thead><tr><th>Day</th><th>Hours</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Monday</td><td>7:00am – 6:00pm</td><td style="color:var(--green);">✅ Open</td></tr>
+        <tr><td class="day">Tuesday</td><td>7:00am – 6:00pm</td><td style="color:var(--green);">✅ Open</td></tr>
+        <tr><td class="day">Wednesday</td><td>7:00am – 6:00pm</td><td style="color:var(--green);">✅ Open</td></tr>
+        <tr><td class="day">Thursday</td><td>7:00am – 6:00pm</td><td style="color:var(--green);">✅ Open</td></tr>
+        <tr><td class="day">Friday</td><td>7:00am – 6:00pm</td><td style="color:var(--green);">✅ Open</td></tr>
+        <tr><td class="day">Saturday</td><td>By request</td><td style="color:var(--orange);">📞 Call us</td></tr>
+        <tr><td class="day">Sunday</td><td>Closed</td><td style="color:var(--text-muted);">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px; color:var(--text-muted); margin-top:10px; text-align:center;">Call or text 973-572-2837 to discuss flexible scheduling options.</p>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-bg" id="reviews">
+  <p class="section-eyebrow">From our families</p>
+  <h2 class="section-title">What parents say 💬</h2>
+  <p class="section-sub">Had a great experience? Leave us a review below!</p>
+  <div class="review-form">
+    <p style="font-size:14px; font-weight:800; margin-bottom:14px; color:var(--purple);">Leave a review ✍️</p>
+    <label>Your name</label>
+    <input id="review-name" type="text" placeholder="e.g. Maria S.">
+    <label>Star rating</label>
+    <div id="star-picker" style="display:flex; gap:6px; margin-bottom:12px;">
+      <span class="star-opt" data-val="1">★</span><span class="star-opt" data-val="2">★</span>
+      <span class="star-opt" data-val="3">★</span><span class="star-opt" data-val="4">★</span>
+      <span class="star-opt" data-val="5">★</span>
+    </div>
+    <label>Your review</label>
+    <textarea id="review-text" placeholder="Tell other parents about your experience..." rows="3"></textarea>
+    <button onclick="submitReview()" style="width:100%; background:var(--pink); color:#fff; border:none; border-radius:100px; padding:13px; font-family:'Nunito',sans-serif; font-size:14px; font-weight:800; cursor:pointer; box-shadow:0 4px 0 var(--pink-dark);">Submit review 💛</button>
+    <p id="review-msg" style="font-size:13px; text-align:center; margin-top:10px; min-height:18px;"></p>
+  </div>
+  <div id="reviews-list"><p style="text-align:center; color:var(--text-muted); font-size:13px; padding:16px 0;">No reviews yet — be the first! 💛</p></div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="contact">
+  <p class="section-eyebrow">Get in touch</p>
+  <h2 class="section-title">We'd love to hear from you 📩</h2>
+  <p class="section-sub">Reach out anytime — we're friendly and always happy to chat!</p>
+  <a href="tel:9735722837" class="contact-card"><div class="contact-icon" style="background:var(--green-light);">📞</div><div class="contact-label"><strong>Call or Text</strong><span>973-572-2837</span></div><span class="contact-arrow">›</span></a>
+  <a href="sms:9735722837" class="contact-card"><div class="contact-icon" style="background:var(--blue-light);">💬</div><div class="contact-label"><strong>Send a Text</strong><span>973-572-2837</span></div><span class="contact-arrow">›</span></a>
+  <a href="https://maps.google.com/?q=Parsippany,Morris+County,NJ" target="_blank" class="contact-card"><div class="contact-icon" style="background:var(--pink-light);">📍</div><div class="contact-label"><strong>Location</strong><span>Parsippany, Morris County, NJ</span></div><span class="contact-arrow">›</span></a>
+  <a href="https://instagram.com" target="_blank" class="contact-card"><div class="contact-icon" style="background:var(--purple-light);">📸</div><div class="contact-label"><strong>Follow us on Instagram</strong><span>See daily photos & updates</span></div><span class="contact-arrow">›</span></a>
+</section>
+
+<!-- ENROLL CTA -->
+<section id="enroll" style="padding: 0 24px 40px;">
+  <div class="enroll-box">
+    <div style="font-size:40px; margin-bottom:8px;">👼✨</div>
+    <h3>Ready to enroll?</h3>
+    <p>Spots are limited! Call or text us today to schedule a free visit and see ABC Angel Daycare in person.</p>
+    <a href="tel:9735722837" class="btn btn-white">📞 Call 973-572-2837</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-emoji">👼</div>
+  <h4>ABC Angel Daycare</h4>
+  <div class="social-row">
+    <a href="#" class="social-btn">📸</a>
+    <a href="sms:9735722837" class="social-btn">💬</a>
+    <a href="tel:9735722837" class="social-btn">📞</a>
+  </div>
+  <p>Parsippany, Morris County, NJ<br>Mon–Fri · 7:00am – 6:00pm<br>Ages 3 Months – 5 Years<br><br>© 2025 ABC Angel Daycare. All rights reserved.</p>
+</footer>
+
+<div class="floating-cta">
+  <a href="tel:9735722837" class="floating-btn">📞 Call or Text — 973-572-2837</a>
+</div>
+
+<script>
+  // ── BOOKING ──
+  function submitBooking() {
+    const parent = document.getElementById('b-parent').value.trim();
+    const phone  = document.getElementById('b-phone').value.trim();
+    const email  = document.getElementById('b-email').value.trim();
+    const age    = document.getElementById('b-age').value;
+    const kids   = document.getElementById('b-kids').value;
+    const date   = document.getElementById('b-date').value;
+    const time   = document.getElementById('b-time').value;
+    const sched  = document.getElementById('b-schedule').value;
+    const notes  = document.getElementById('b-notes').value.trim();
+    const msg    = document.getElementById('booking-msg');
+
+    if (!parent) { msg.textContent = 'Please enter your name.'; return; }
+    if (!phone)  { msg.textContent = 'Please enter your phone number.'; return; }
+    if (!age)    { msg.textContent = "Please select your child's age group."; return; }
+    if (!kids)   { msg.textContent = 'Please select number of children.'; return; }
+    msg.textContent = '';
+
+    const lines = [
+      '👼 *New Tour Request – ABC Angel Daycare*',
+      '',
+      `👤 *Parent Name:* ${parent}`,
+      `📞 *Phone:* ${phone}`,
+      email ? `📧 *Email:* ${email}` : null,
+      `👶 *Child Age Group:* ${age}`,
+      `🧒 *Number of Children:* ${kids}`,
+      date   ? `📅 *Preferred Start Date:* ${new Date(date + 'T00:00:00').toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'})}` : null,
+      time   ? `🕐 *Preferred Tour Time:* ${time}` : null,
+      sched  ? `📋 *Care Schedule:* ${sched}` : null,
+      notes  ? `💬 *Notes:* ${notes}` : null,
+    ].filter(Boolean).join('\n');
+
+    const waURL = `https://wa.me/19735722837?text=${encodeURIComponent(lines)}`;
+    window.open(waURL, '_blank');
+
+    document.getElementById('booking-form-wrap').style.display = 'none';
+    document.getElementById('booking-success').style.display = 'block';
+  }
+
+  // ── REVIEWS ──
+  const COLORS = ['#F06292','#42A5F5','#66BB6A','#7B5EA7','#FFCA28','#FF7043'];
+  let selectedStars = 0;
+  let reviews = [];
+
+  document.querySelectorAll('.star-opt').forEach(star => {
+    star.addEventListener('click', () => { selectedStars = parseInt(star.dataset.val); updateStars(selectedStars); });
+    star.addEventListener('mouseover', () => updateStars(parseInt(star.dataset.val)));
+    star.addEventListener('mouseout', () => updateStars(selectedStars));
+  });
+
+  function updateStars(n) {
+    document.querySelectorAll('.star-opt').forEach((s, i) => {
+      s.style.opacity = i < n ? '1' : '0.3';
+      s.style.color = i < n ? '#FFCA28' : '';
+    });
+  }
+
+  function getInitials(name) { return name.trim().split(' ').map(w => w[0]).join('').toUpperCase().slice(0,2); }
+  function formatDate(ts) { return new Date(ts).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }); }
+  function escapeHtml(str) { return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  function renderReviews() {
+    const list = document.getElementById('reviews-list');
+    if (!reviews.length) { list.innerHTML = '<p style="text-align:center;color:var(--text-muted);font-size:13px;padding:16px 0;">No reviews yet — be the first! 💛</p>'; return; }
+    list.innerHTML = reviews.slice().reverse().map((r, i) => {
+      const color = COLORS[i % COLORS.length];
+      const stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+      return `<div class="testimonial-card"><p class="testimonial-text">${escapeHtml(r.text)}</p><div class="testimonial-author"><div class="avatar" style="background:${color};">${getInitials(r.name)}</div><div><div class="author-name">${escapeHtml(r.name)}</div><div class="stars">${stars}</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">${formatDate(r.date)}</div></div></div></div>`;
+    }).join('');
+  }
+
+  function submitReview() {
+    const name = document.getElementById('review-name').value.trim();
+    const text = document.getElementById('review-text').value.trim();
+    const msg  = document.getElementById('review-msg');
+    if (!name) { msg.style.color='#E53935'; msg.textContent='Please enter your name.'; return; }
+    if (!selectedStars) { msg.style.color='#E53935'; msg.textContent='Please pick a star rating.'; return; }
+    if (text.length < 10) { msg.style.color='#E53935'; msg.textContent='Please write at least a sentence.'; return; }
+    reviews.push({ name, stars: selectedStars, text, date: Date.now() });
+    document.getElementById('review-name').value = '';
+    document.getElementById('review-text').value = '';
+    selectedStars = 0; updateStars(0);
+    msg.style.color = '#66BB6A';
+    msg.textContent = 'Thank you! Your review has been posted. 💛';
+    setTimeout(() => msg.textContent = '', 4000);
+    renderReviews();
+  }
+
+  renderReviews();
+</script>
+</body>
+</html>
